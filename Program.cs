@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.IO;
 
 namespace Telematics
 {
@@ -6,21 +8,23 @@ namespace Telematics
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please enter the Vechile Number: ");
-            var vinInput = double.Parse(Console.ReadLine());
+            Console.WriteLine("Please enter the Vechile Number. ");
+            var vinInput = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Please enter the Mileage: ");
+            Console.WriteLine("Please enter the Mileage. ");
             var odometerInput = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Please enter the Consumption: ");
+            Console.WriteLine("Please enter the Consumption. ");
             var consumptionInput = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Please enter the Miles at Last Oil Change: ");
+            Console.WriteLine("Please enter the Miles at Last Oil Change. ");
             var lastOilChange = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Please enter the Engine Size: ");
+            Console.WriteLine("Please enter the Engine Size. ");
             var engineSize = double.Parse(Console.ReadLine());
-            
+
+            var newVehicle = new VehicleInfo(vinInput, odometerInput, consumptionInput, lastOilChange, engineSize); 
+            new TelematicsService().Report(newVehicle);
         }
     }
 }

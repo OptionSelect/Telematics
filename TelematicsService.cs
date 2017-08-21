@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Collections;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Telematics
 {
@@ -14,6 +15,22 @@ namespace Telematics
             using (var jsonWriter = new JsonTextWriter(writer))
             {
                 serializer.Serialize(writer, vehicleInfo);
+            }
+        }
+
+        public void deJson(VehicleInfo vehicleInfo)
+        {
+            string[] files = System.IO.Directory.GetFiles("/Users/brandyn/dotnet/Telematics", "*.json");
+            ///LIST CREATION GOES HERE
+            List<object> vehicleList = new List<object>();
+            foreach (var item in files)
+            {
+                using (StreamReader file = File.OpenText(item))
+                {
+                    var vehicleInfoObj = JsonConvert.DeserializeObject<VehicleInfo>(file.ReadToEnd());
+                    vehicleList.Add(vehicleInfoObj);
+                    Console.WriteLine(vehicleList);
+                }
             }
         }
     }

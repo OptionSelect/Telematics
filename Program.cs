@@ -28,6 +28,7 @@ namespace Telematics
             var newVehicle = new VehicleInfo(vinInput, odometerInput, consumptionInput, lastOilChange, engineSize); 
             new TelematicsService().Report(newVehicle);
             new TelematicsService().deJson(newVehicle);
+            new TelematicsService().updateHTML(newVehicle);
         }
     }
 }

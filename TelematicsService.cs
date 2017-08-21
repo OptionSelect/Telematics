@@ -32,5 +32,11 @@ namespace Telematics
                 }
             }
         }
+
+        public void updateHTML(VehicleInfo vehicleinf)
+        {
+            string html = File.ReadAllText("/Users/brandyn/dotnet/Telematics/Dashboard.html");
+            Console.WriteLine(html);
+        }
     }
 }

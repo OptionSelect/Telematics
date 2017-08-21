@@ -29,7 +29,6 @@ namespace Telematics
                 {
                     var vehicleInfoObj = JsonConvert.DeserializeObject<VehicleInfo>(file.ReadToEnd());
                     vehicleList.Add(vehicleInfoObj);
-                    Console.WriteLine(vehicleList);
                 }
             }
         }
